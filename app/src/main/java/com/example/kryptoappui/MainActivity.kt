@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.kryptoappui.ui.screens.TitleBar
 import com.example.kryptoappui.ui.theme.KryptoAppUiTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,10 +20,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KryptoAppUiTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    topBar = {
+                        TitleBar()
+                    },
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) {
                     Greeting(
                         name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(it)
                     )
                 }
             }
@@ -36,12 +43,4 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    KryptoAppUiTheme {
-        Greeting("Android")
-    }
 }
