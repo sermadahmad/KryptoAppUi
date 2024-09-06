@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -21,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -64,6 +66,62 @@ fun TitleBar(modifier: Modifier = Modifier) {
                     modifier = Modifier.padding(8.dp)
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun FromToSection(name: String, modifier: Modifier = Modifier) {
+    Column(
+        modifier = Modifier.background(Color.Black)
+    ) {
+        Text(
+            text = name,
+            color = Color.White,
+            fontSize = 12.sp,
+            modifier = Modifier.padding(start = 16.dp, top = 8.dp)
+
+        )
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 12.dp)
+                .background(Color.DarkGray, CircleShape)
+
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+
+                ) {
+                IconButton(modifier = Modifier
+                    .padding(8.dp)
+                    .background(Color.White, CircleShape),
+                    onClick = { /*TODO*/ }) {
+                    Icon(
+                        imageVector = Icons.Default.Home, contentDescription = "Icon"
+                    )
+                }
+                Column {
+
+                    Text(
+                        text = "Ethereum", color = Color.White, modifier = Modifier.padding(2.dp)
+                    )
+                    Text(
+                        text = "ETH",
+                        color = Color.Gray,
+                        fontSize = 12.sp,
+                        modifier = Modifier.padding(2.dp)
+
+
+                    )
+                }
+            }
+            Text(
+                text = "Estimated: 4", color = Color.White, modifier = Modifier.padding(12.dp)
+            )
+
         }
     }
 }
