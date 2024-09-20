@@ -11,10 +11,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.kryptoappui.ui.screens.FromToSection
-import com.example.kryptoappui.ui.screens.NetworkFeesSection
+import com.example.kryptoappui.ui.screens.BottomBar
+import com.example.kryptoappui.ui.screens.HomeScreen
 import com.example.kryptoappui.ui.screens.TitleBar
 import com.example.kryptoappui.ui.theme.KryptoAppUiTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +27,9 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TitleBar()
                     },
+                    bottomBar = {
+                        BottomBar()
+                    },
                     modifier = Modifier
                         .fillMaxSize()
                 ) {
@@ -34,11 +38,8 @@ class MainActivity : ComponentActivity() {
                             .padding(it)
                             .fillMaxSize()
                             .background(Color.Black)
-
                     ) {
-                        FromToSection(name = "From")
-                        FromToSection(name = "To")
-                        NetworkFeesSection()
+                        HomeScreen()
                     }
                 }
             }
